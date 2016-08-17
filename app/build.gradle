@@ -1,8 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
+<<<<<<< HEAD
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
+=======
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+>>>>>>> 233d4e6871edee7b78a5e3cbf3975cd8471de61f
 
     repositories
             {
@@ -12,7 +17,11 @@ android {
     defaultConfig {
         applicationId "com.devesh.intern"
         minSdkVersion 16
+<<<<<<< HEAD
         targetSdkVersion 24
+=======
+        targetSdkVersion 23
+>>>>>>> 233d4e6871edee7b78a5e3cbf3975cd8471de61f
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -32,11 +41,19 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+<<<<<<< HEAD
     compile 'com.android.support:appcompat-v7:24.+'
     compile 'com.android.support:cardview-v7:24.+'
     compile 'com.android.support:design:24.+'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile 'com.android.support:support-v4:24.+'
+=======
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:cardview-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile 'com.android.support:support-v4:23.4.0'
+>>>>>>> 233d4e6871edee7b78a5e3cbf3975cd8471de61f
     compile 'com.android.volley:volley:+'
     compile 'de.hdodenhof:circleimageview:1.3.0'
 

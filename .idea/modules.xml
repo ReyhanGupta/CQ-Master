@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/CQ.iml" filepath="$PROJECT_DIR$/CQ.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/CherryQuill-master.iml" filepath="$PROJECT_DIR$/CherryQuill-master.iml" />
+>>>>>>> 233d4e6871edee7b78a5e3cbf3975cd8471de61f
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
