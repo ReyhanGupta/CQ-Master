@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.devesh.intern">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/withname"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".MainPage"
+            android:label="@string/title_activity_main_page"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ViewStory" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUp"></activity>
+
+        <activity android:name=".Login" />
+        <activity android:name=".Details" />
+        <activity android:name=".Facebook" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".GmailMain" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".Register" />
+        <activity android:name=".Registered" />
+
+        <activity android:name=".Existing" />
+        <activity android:name=".ExistingInsert" />
+        <activity android:name=".Extra" />
+        <activity android:name=".InsertTemp" />
+        <activity android:name=".ValidateEmail" />
+
+        <activity android:name=".LoggedIn">
+
+
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="oauth" android:host="testing"/>
+
+
+        </intent-filter>
+
+        </activity>
+        <activity android:name=".ExtraTwitter" />
+        <activity android:name=".ExistingTwitter" />
+        <activity android:name=".ExistingInsertTwitter" />
+        <activity android:name=".ValidateTwitterID" />
+        <activity android:name=".TwitterLogin" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,175 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.devesh.intern.AccountPage">
+
+    <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10sp"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:layout_marginTop="20sp"
+
+        android:id="@+id/profile_image"
+
+        android:layout_width="70dp"
+
+        android:layout_height="70dp"
+
+        android:src="@drawable/myaccount"
+
+        app:border_color="#FF000000"
+
+        android:layout_gravity="center"
+        />
+
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:padding="10sp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Display Name"
+        android:padding="10sp"
+        android:id="@+id/et1"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pen-Name"
+        android:padding="10sp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Display Pen-Name"
+        android:padding="10sp"
+        android:id="@+id/et2"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E-mail"
+        android:padding="10sp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Display E-mail"
+        android:padding="10sp"
+        android:id="@+id/et3"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:padding="10sp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Display Age"
+        android:padding="10sp"
+        android:id="@+id/et4"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Country"
+        android:padding="10sp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Display Country"
+        android:padding="10sp"
+        android:id="@+id/et5"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="10sp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Display Current Password"
+        android:padding="10sp"
+        android:id="@+id/et6"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:padding="10sp"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:layout_marginTop="5sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="10sp"
+        android:id="@+id/et7"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <Button
+        android:layout_marginTop="5sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button_style1"
+        android:padding="10sp"
+        android:textSize="22sp"
+        android:textColor="@drawable/button_style1_text"
+        android:text="Save"/>
+</LinearLayout>
+
+</ScrollView>
