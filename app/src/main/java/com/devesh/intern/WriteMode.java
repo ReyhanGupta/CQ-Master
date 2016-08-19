@@ -3,6 +3,7 @@ package com.devesh.intern;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,5 +29,16 @@ public class WriteMode extends Fragment {
         Log.d("Write","View Reached");
         return view;
     }
+
+    public class RecyclerViewHolder extends RecyclerView.ViewHolder{
+
+
+
+        public RecyclerViewHolder(View itemView) {
+            super(itemView);
+        }
+    }
+
+    public class RecyclerAdapter extends Recy
 
 }
