@@ -2,9 +2,12 @@ package com.devesh.intern;
 
 
 import android.app.DownloadManager;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -31,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.devesh.intern.Tables.SQL_Commands;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +47,9 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class ReadMode extends Fragment {
+
+
+    SQLiteDatabase database;
 
     ArrayList<Info> myList;
     ListView myView;
@@ -183,34 +190,75 @@ public class ReadMode extends Fragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView tv1, tv2, tv3, tv4;
+            TextView tv1, tv2, tv3, tv4,tv5;
 
             LayoutInflater inflater =getLayoutInflater(null);
             convertView = inflater.inflate(R.layout.items, null);
+
             final Info element = getItem(position);
+
             tv1 = (TextView) convertView.findViewById(R.id.tv1);
             tv2 = (TextView) convertView.findViewById(R.id.tv2);
             tv3 = (TextView) convertView.findViewById(R.id.tv3);
             tv4 = (TextView) convertView.findViewById(R.id.tv4);
+            tv5 = (TextView) convertView.findViewById(R.id.tv5);
 
+            bar = (ProgressBar) convertView.findViewById(R.id.bar1);
 
             tv1.setText(element.name);
             tv2.setText(element.genre);
             tv3.setText(element.date);
             tv4.setText(String.valueOf(element.time)+" read");
 
+            tv5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setCancelable(true);
+                    builder.setTitle(element.name);
+                    builder.setMessage(element.synopsis);
+                    builder.setPositiveButton("READ NOW", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            long startTime= SystemClock.uptimeMillis();
+
+                            bar.setProgress(100);
+                            while((SystemClock.uptimeMillis()-startTime)<1000){
+                                if((SystemClock.uptimeMillis()-startTime)%500==0){
+                                    Log.d("HELL","GATE");
+                                }
+                            }
+                            Intent intent = new Intent(getContext(),ViewStory.class);
+                            //    Info object = myList.get(position);
+                            intent.putExtra("Name",element.name);
+                            intent.putExtra("Genre",element.genre);
+                            intent.putExtra("Story",element.story);
+                            startActivityForResult(intent,1234);
+                        }
+                    }).setNegativeButton("READ LATER", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                              database = MyOfflineDatabase.openWritableDatabase(getContext());
+
+                            ContentValues values = new ContentValues();
+                            values.put(SQL_Commands.Columns.NAME,element.getName());
+                            values.put(SQL_Commands.Columns.GENRE,element.getGenre());
+                            values.put(SQL_Commands.Columns.STORY,element.getStory());
+                            values.put(SQL_Commands.Columns.SYNOPSIS,element.getSynopsis());
+                            values.put(SQL_Commands.Columns.DATE,element.getDate());
+                            values.put(SQL_Commands.Columns.TIME,element.getTime());
+
+                            database.insert(SQL_Commands.TABLE_NAME,null,values);
+                        }
+                    });
+                    builder.show();
+
+                }
+            });
+
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d(TAG,""+v.getId()+" "+R.id.tv5);
-                    if(v.getId()==R.id.tv5){
-                        Log.d(TAG,"Synopsis Clicked");
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                        builder.setCancelable(true);
-                        builder.setTitle(element.name);
-                        builder.setMessage(element.synopsis);
-                        builder.show();
-                    }else{
                         Log.d(TAG,"XYZ Clicked");
                         long startTime= SystemClock.uptimeMillis();
                         bar = (ProgressBar) v.findViewById(R.id.bar1);
@@ -227,7 +275,6 @@ public class ReadMode extends Fragment {
                         intent.putExtra("Story",element.story);
                         startActivityForResult(intent,1234);
                     }
-                }
             });
 
             return convertView;
