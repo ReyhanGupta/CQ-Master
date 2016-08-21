@@ -2,6 +2,8 @@ package com.devesh.intern;
 
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +17,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.devesh.intern.Tables.SQL_Commands;
+
 import java.util.ArrayList;
 
 
@@ -27,8 +31,53 @@ public class WriteMode extends Fragment {
     ListAdapter adapter;
     ArrayList<Info> databaseList;
 
+    SQLiteDatabase database;
+
     public WriteMode() {
         // Required empty public constructor
+
+        databaseList = new ArrayList<>();
+        database = MyOfflineDatabase.openReadableDatabase(getContext());
+        listView = (ListView) getActivity().findViewById(R.id.listview_writemode);
+
+        adapter = new ListAdapter(databaseList);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+
+        performTask();
+
+    }
+
+    public void performTask(){
+
+        String[] projection = {
+
+                SQL_Commands.Columns.NAME,
+                SQL_Commands.Columns.STORY,
+                SQL_Commands.Columns.GENRE,
+                SQL_Commands.Columns.SYNOPSIS,
+                SQL_Commands.Columns.DATE,
+                SQL_Commands.Columns.TIME
+
+        };
+
+        Cursor c = database.query(SQL_Commands.TABLE_NAME,projection,null,null,null,null,null);
+        // c.moveToFirst();
+        while (c.moveToNext()){
+
+            String name = c.getString(c.getColumnIndexOrThrow(SQL_Commands.Columns.NAME));
+            String genre = c.getString(c.getColumnIndexOrThrow(SQL_Commands.Columns.GENRE));
+            String synop = c.getString(c.getColumnIndexOrThrow(SQL_Commands.Columns.SYNOPSIS));
+            String story = c.getString(c.getColumnIndexOrThrow(SQL_Commands.Columns.STORY));
+            String date = c.getString(c.getColumnIndexOrThrow(SQL_Commands.Columns.DATE));
+            String time = c.getString(c.getColumnIndexOrThrow(SQL_Commands.Columns.TIME));
+
+            databaseList.add(new Info(name,genre,story,synop,date,5));
+        }
+
+        adapter.notifyDataSetChanged();
+
     }
 
 
