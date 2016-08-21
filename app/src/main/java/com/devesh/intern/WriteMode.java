@@ -38,9 +38,12 @@ public class WriteMode extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_write_mode, container, false);
 
-        
+        databaseList = new ArrayList<>();
 
-
+        listView = (ListView) view.findViewById(R.id.listview_writemode);
+        adapter = new ListAdapter(databaseList);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         return view;
     }
