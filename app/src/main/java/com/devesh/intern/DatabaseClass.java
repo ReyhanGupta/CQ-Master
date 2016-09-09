@@ -11,6 +11,9 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DatabaseClass extends SQLiteOpenHelper {
 
+
+    // COL_1 hasn't been implemented
+
     public static final String DATABASE_NAME = "story.db";
     public static final String TABLE_NAME = "info";
     public static final String COL_1 = "ID";
@@ -37,6 +40,8 @@ public class DatabaseClass extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
+
+    // insertData could be implemented in READ MODE as well
 
     public boolean insertData(String name,String genre,String synopsis,String story,String date,Integer time){
         SQLiteDatabase db = this.getWritableDatabase();

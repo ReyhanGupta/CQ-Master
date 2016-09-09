@@ -107,6 +107,8 @@ public class WriteMode extends Fragment {
 
         class Holder{
 
+            // Holder being used to decrease the time taken
+            // Can be upgraded to Recycler View
 
             TextView title,genre,synopsis,date,time;
             ProgressBar progressBar;
@@ -164,6 +166,10 @@ public class WriteMode extends Fragment {
 
                 }
             }else{
+
+                // For new story upload
+                // Aditi will attach Text Editor
+
                 if(i==0)
                     view = inflater.inflate(R.layout.create_new,null);
                 else{
@@ -185,6 +191,8 @@ public class WriteMode extends Fragment {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        // Moves to the story
                         Intent intent = new Intent(getContext(),ViewStory.class);
                         intent.putExtra("Name",item.name);
                         intent.putExtra("Genre",item.genre);
@@ -207,6 +215,7 @@ public class WriteMode extends Fragment {
 
         if((requestCode==1234)&&(resultCode==-1)){
            // bar.setProgress(0);
+            // UI changes if required
         }
     }
 }
