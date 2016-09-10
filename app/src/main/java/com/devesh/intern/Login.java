@@ -83,7 +83,7 @@ public class Login extends Activity {
         protected String doInBackground(String... params) {
             // TODO Auto-generated method stub
             //String login_url= "http://10.0.2.2/login.php";
-            String login_url= "http://192.168.1.103/login.php";
+            String login_url= "http://192.168.1.102/login.php";
 
 
             try

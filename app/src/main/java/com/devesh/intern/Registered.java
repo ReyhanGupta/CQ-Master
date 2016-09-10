@@ -69,7 +69,7 @@ public class Registered extends Activity {
             try
             {
                 //String account_url= "http://10.0.2.2/getSingle.php";192.168.1.104
-                String account_url= "http://192.168.1.103/getSingle.php";
+                String account_url= "http://192.168.1.102/getSingle.php";
 
                 user_name= user_nameE;
                 password= passwordE;

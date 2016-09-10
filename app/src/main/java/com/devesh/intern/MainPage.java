@@ -44,7 +44,7 @@ public class MainPage extends AppCompatActivity
     ProgressBar bar;
     ArrayList<String> selectList;
     TextView select;
-    Button syn;
+    TextView syn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,8 @@ public class MainPage extends AppCompatActivity
         selectList.add("ACCOUNT");
         selectList.add("SIGN OUT");
 
-
-        syn=(Button)findViewById(R.id.tv5);
+// Navigation Drawer Layout
+        syn= (TextView)findViewById(R.id.tv5);
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -93,7 +93,8 @@ public class MainPage extends AppCompatActivity
         adapter2.notifyDataSetChanged();
 
 
-
+    // List View On item Click Listener
+        //  Replacing Fragments
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -152,6 +153,7 @@ public class MainPage extends AppCompatActivity
 
     public void performSynopsis(final String title, final String message)
     {
+        // Alert Dialog box can be customized by declaring a Alert Dialog Activity and setting the view using an XML file
         syn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

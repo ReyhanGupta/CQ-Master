@@ -48,15 +48,18 @@ import java.util.ArrayList;
  */
 public class ReadMode extends Fragment {
 
-
+// Database
     SQLiteDatabase database;
 
+    // Declaration
     ArrayList<Info> myList;
     ListView myView;
     Adapter listAdapter;
 
     ProgressBar bar;
     RequestQueue requestQueue;
+
+    // URL to free hosting site .. Could be updated to FIREBASE
     String url = "http://aditisharma.tk/application/cherry11.json";
     public static final String TAG = " ReadMode ";
 
@@ -74,7 +77,7 @@ public class ReadMode extends Fragment {
         Log.d("Fragment","Oncreate");
         View view = inflater.inflate(R.layout.fragment_read_mode, container, false);
 
-
+// List Initialization
         myList = new ArrayList<>();
 
         myView= (ListView) view.findViewById(R.id.list_view);
@@ -87,7 +90,7 @@ public class ReadMode extends Fragment {
         Log.d(TAG,"Request Queue Initialized");
         requestQueue = Volley.newRequestQueue(getContext());
 
-
+// Downloading JSON
         checkConnection();
 
 
@@ -109,11 +112,13 @@ public class ReadMode extends Fragment {
     }
 
     public void checkConnection() {
+        // To check if active network connection exists
         ConnectivityManager connectivityManager = (ConnectivityManager)  getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
             Log.d(TAG,"Network Present");
+            // Fetching Data
             NetFetchTask();
         } else {
             Toast.makeText(getContext(), "Internet not Connected", Toast.LENGTH_SHORT).show();
@@ -122,15 +127,22 @@ public class ReadMode extends Fragment {
     }
 
     public void performTask(Info content){
+
+        // Called up for updating the List everytime a change occurs
+
         Log.d(TAG,"PerformTask");
         myList.add(content);
+
         Log.d(TAG,"Values Added to List");
+
         Log.d("MYLIST",""+myList.size());
+
         listAdapter.notifyDataSetChanged();
     }
 
 
     public JsonArrayRequest JSONStringBuilder(){
+        // Makes use of Volley
         Log.d(TAG,"Request Builder "+url);
         String s1 = url;
         final JsonArrayRequest request = new JsonArrayRequest(s1, new Response.Listener<JSONArray>() {
@@ -146,6 +158,7 @@ public class ReadMode extends Fragment {
 
                             Log.d(TAG, "Response Size " + response.length());
 
+                            // JSON Object Received from CheeryQuill Database
                             JSONObject object = response.getJSONObject(i);
                             Info info = new Info(object.getString("title"),
                                     object.getString("genre"),

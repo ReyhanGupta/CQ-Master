@@ -5,6 +5,8 @@ package com.devesh.intern;
  */
 public class Info {
 
+    // SID can be added as per requirement to further increase functionality of the app
+
     String name;
     String genre;
     String story;
@@ -13,6 +15,7 @@ public class Info {
     Integer time;
 
     public Info(String name, String genre, String story, String synopsis, String date, Integer time) {
+    // Constructor
         this.name = name;
         this.genre = genre;
         this.story = story;
